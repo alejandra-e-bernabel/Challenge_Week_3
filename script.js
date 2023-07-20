@@ -17,7 +17,86 @@ function writePassword() {
 
 
 function generatePassword () {
+  var passwordLength = 8;
+  var lowercase = true;
+  var uppercase = false;
+  var numeric = true;
+  var specialChar = false;
 
+  var password;
+
+//the case where the user does not input anything
+  if (!lowercase && !uppercase && !numeric && !specialChar)
+    alert ("Your password must contain at least one characteristic. Please try again.");
+
+
+//the cases where only one thing is selected
+  else if (lowercase && !uppercase && !numeric && !specialChar) {
+    alert ("A password with only lowercase letters will be output");
+
+    
+  }
+
+  else if (!lowercase && uppercase && !numeric && !specialChar) {
+    alert ("A password with only uppercase letters will be output");
+  }
+
+  
+  else if (!lowercase && !uppercase && numeric && !specialChar) {
+    alert ("A password with only numbers will be output");
+  }
+
+  else if (!lowercase && !uppercase && !numeric && specialChar) {
+    alert ("A password with only special characters will be output");
+  }
+  
+//the cases where two things are selected
+  else if (lowercase && uppercase && !numeric && !specialChar) {
+    alert ("A password with uppercase and lowercase will be output");
+  }
+
+  
+  else if (lowercase && !uppercase && numeric && !specialChar) {
+    alert ("A password with lowercase and numeric characters will be output");
+  }
+
+  else if (lowercase && !uppercase && !numeric && specialChar) {
+    alert ("A password with lowercase and special characters will be output");
+  }
+
+  else if (!lowercase && uppercase && numeric && !specialChar) {
+    alert ("A password with uppercase and numeric characters will be output");
+  }
+
+  else if (!lowercase && uppercase && !numeric && specialChar) {
+    alert ("A password with uppercase and special characters will be output");
+  }
+
+  else if (!lowercase && !uppercase && numeric && specialChar) {
+    alert ("A password with numeric, and special characters will be output");
+  }
+
+//cases when three things are selected
+  else if (!lowercase && uppercase && numeric && specialChar) {
+    alert ("A password with uppercase, numeric, and special characters will be output");
+  }
+
+  else if (lowercase && !uppercase && numeric && specialChar) {
+    alert ("A password with lowercase, numeric, and special characters will be output");
+  }
+
+  else if (lowercase && uppercase && !numeric && specialChar) {
+    alert ("A password with uppercase, lowercase, and special characters will be output");
+  }
+  
+  else if (lowercase && uppercase && numeric && !specialChar) {
+    alert ("A password with uppercase, lowercase, and numeric characters will be output");
+  }
+
+//the case where all are true (and works as a catch-all in case I missed something)
+  else {
+    alert ("A password with uppercase, lowercase, numeric, and special characters will be output");
+  }
 }
 
 // Add event listener to generate button
