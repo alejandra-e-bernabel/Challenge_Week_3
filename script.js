@@ -16,6 +16,7 @@ function writePassword() {
 //make sure user selects at least one of the above
 
 
+
 function generatePassword () {
   var passwordLength = 8;
   var lowercase = true;
@@ -33,7 +34,8 @@ function generatePassword () {
 //the cases where only one thing is selected
   else if (lowercase && !uppercase && !numeric && !specialChar) {
     alert ("A password with only lowercase letters will be output");
-
+    
+    return 
 
   }
 
@@ -108,6 +110,21 @@ function generateRandomSpecialChar () {
   //   console.log (randomArray[i]);
 
   return randomArray[Math.random() * randomArray.length>>0];
+}
+
+function lowerArr () {
+  var lowerArr = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+  return lowerArr;
+}
+
+function upperArr () {
+  var upperArr = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+  return upperArr;
+}
+
+function numberArr () {
+  var numberArr = ["0","1", "2", "3","4", "5", "6","7", "8", "9"];
+  return numberArr;
 }
 
 // Add event listener to generate button
