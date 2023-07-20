@@ -34,7 +34,7 @@ function generatePassword () {
   else if (lowercase && !uppercase && !numeric && !specialChar) {
     alert ("A password with only lowercase letters will be output");
 
-    
+
   }
 
   else if (!lowercase && uppercase && !numeric && !specialChar) {
@@ -97,6 +97,17 @@ function generatePassword () {
   else {
     alert ("A password with uppercase, lowercase, numeric, and special characters will be output");
   }
+}
+
+
+function generateRandomSpecialChar () {
+  randomArray = [" ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+
+  //checks that array was created successfully
+  // for (var i=0; i<randomArray.length; i++) 
+  //   console.log (randomArray[i]);
+
+  return randomArray[Math.random() * randomArray.length>>0];
 }
 
 // Add event listener to generate button
