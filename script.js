@@ -18,17 +18,17 @@ function writePassword() {
 
 
 function generatePassword () {
-  var passwordLength = 8;
+  var passwordLength = 5;
   var lowercase = true;
-  var uppercase = false;
-  var numeric = false;
-  var specialChar = false;
+  var uppercase = true;
+  var numeric = true;
+  var specialChar = true;
 
   var password = [];
   var allChars = [];
 
 //the case where the user does not input anything
-  if (!lowercase && !uppercase && !numeric && !specialChar)
+  if (!lowercase && !uppercase && !numeric && !specialChar && passwordLength<8 )
     alert ("Your password must contain at least one characteristic. Please try again.");
 
 
@@ -42,83 +42,209 @@ function generatePassword () {
         
       }
 
-      password.forEach(function(element) {
-        console.log(element);
-      })
+      console.log(password.join(""));
 
   }
 
   else if (!lowercase && uppercase && !numeric && !specialChar) {
     alert ("A password with only uppercase letters will be output");
+
+    allChars = upperArr();
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   
   else if (!lowercase && !uppercase && numeric && !specialChar) {
     alert ("A password with only numbers will be output");
+
+    allChars = numberArr();
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   else if (!lowercase && !uppercase && !numeric && specialChar) {
     alert ("A password with only special characters will be output");
+
+    allChars = specialCharArr();
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
   
 //the cases where two things are selected
   else if (lowercase && uppercase && !numeric && !specialChar) {
     alert ("A password with uppercase and lowercase will be output");
+
+    allChars = lowerArr().concat(upperArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   
   else if (lowercase && !uppercase && numeric && !specialChar) {
     alert ("A password with lowercase and numeric characters will be output");
+
+    allChars = lowerArr().concat(numberArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   else if (lowercase && !uppercase && !numeric && specialChar) {
     alert ("A password with lowercase and special characters will be output");
+    
+    allChars = lowerArr().concat(specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   else if (!lowercase && uppercase && numeric && !specialChar) {
     alert ("A password with uppercase and numeric characters will be output");
+    
+    allChars = upperArr().concat(numberArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   else if (!lowercase && uppercase && !numeric && specialChar) {
     alert ("A password with uppercase and special characters will be output");
+    
+    allChars = upperArr().concat(specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   else if (!lowercase && !uppercase && numeric && specialChar) {
     alert ("A password with numeric, and special characters will be output");
+    
+    allChars = numberArr().concat(specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
 //cases when three things are selected
   else if (!lowercase && uppercase && numeric && specialChar) {
     alert ("A password with uppercase, numeric, and special characters will be output");
+  
+    allChars = upperArr().concat(numberArr(),specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
   }
 
   else if (lowercase && !uppercase && numeric && specialChar) {
     alert ("A password with lowercase, numeric, and special characters will be output");
+    
+    allChars = lowerArr().concat(numberArr(),specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
+  
   }
 
   else if (lowercase && uppercase && !numeric && specialChar) {
     alert ("A password with uppercase, lowercase, and special characters will be output");
+  
+    allChars = lowerArr().concat(upperArr(),specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
+
   }
   
   else if (lowercase && uppercase && numeric && !specialChar) {
     alert ("A password with uppercase, lowercase, and numeric characters will be output");
-  }
+  
+    allChars = lowerArr().concat(upperArr(),numberArr());
 
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
+
+    }
+
+  
 //the case where all are true (and works as a catch-all in case I missed something)
   else {
     alert ("A password with uppercase, lowercase, numeric, and special characters will be output");
+  
+    allChars = lowerArr().concat(upperArr(),numberArr(),specialCharArr());
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      console.log(password.join(""));
+
   }
+
+  return password.join("");
 }
 
 
-function generateRandomSpecialChar () {
-  randomArray = [" ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
-
-  //checks that array was created successfully
-  // for (var i=0; i<randomArray.length; i++) 
-  //   console.log (randomArray[i]);
-
-  return randomArray[Math.random() * randomArray.length>>0];
+function specialCharArr () {
+  var specialCharArr = [" ","!","\"","#","$","%","&","'","(",")","*","+",",","-",".","/",":",";","<","=",">","?","@","[","\\","]","^","_","`","{","|","}","~"];
+  return specialCharArr;
 }
 
 function lowerArr () {
