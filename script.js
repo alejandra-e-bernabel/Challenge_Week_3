@@ -21,10 +21,11 @@ function generatePassword () {
   var passwordLength = 8;
   var lowercase = true;
   var uppercase = false;
-  var numeric = true;
+  var numeric = false;
   var specialChar = false;
 
-  var password;
+  var password = [];
+  var allChars = [];
 
 //the case where the user does not input anything
   if (!lowercase && !uppercase && !numeric && !specialChar)
@@ -34,8 +35,16 @@ function generatePassword () {
 //the cases where only one thing is selected
   else if (lowercase && !uppercase && !numeric && !specialChar) {
     alert ("A password with only lowercase letters will be output");
-    
-    return 
+      allChars = lowerArr();
+
+      for (var i=0; i<passwordLength; i++) {
+        password.push(allChars[Math.random() * allChars.length>>0]);
+        
+      }
+
+      password.forEach(function(element) {
+        console.log(element);
+      })
 
   }
 
