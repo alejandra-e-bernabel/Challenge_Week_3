@@ -45,6 +45,8 @@ function generatePassword () {
     alert ("A password with only lowercase letters will be output");
       allChars = lowerArr();
 
+      // password = createRandomArray(passwordLength, allChars);
+
       for (var i=0; i<passwordLength; i++) {
         password.push(allChars[Math.random() * allChars.length>>0]);
         
@@ -246,11 +248,39 @@ function generatePassword () {
 
   }
 
+
+  //these four cases check that, in all cases, if soemthing is checked off, then it's part of the password
+  //covers the cases where the random password randomly does not contain a character that was necessary to fit set conditions.
+
+  if(lowercase && !lowerArr().some(item => password.includes(item))) {
+      alert("A new password will be generated... this one did not meet criteria of having at least one lowercase letters");
+      generatePassword();
+      return password.join("");
+  }
+
+  if(uppercase && !upperArr().some(item => password.includes(item))) {
+    alert("A new password will be generated... this one did not meet criteria of having at least one uppercase letters");
+    generatePassword();
+    return password.join("");
+  }
+
+  if(numeric && !numberArr().some(item => password.includes(item))) {
+    alert("A new password will be generated... this one did not meet criteria of having at least one number character");
+    generatePassword();
+    return password.join("");
+  }
+
+  if(specialChar && !specialCharArr().some(item => password.includes(item))) {
+    alert("A new password will be generated... this one did not meet criteria of having at least one number character");
+    generatePassword();
+    return password.join("");
+  }
+
+
+
   return password.join("");
 }
 
-
-// checkPasswordItems
 
 
 function specialCharArr () {
