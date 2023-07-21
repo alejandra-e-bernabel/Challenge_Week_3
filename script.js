@@ -16,19 +16,27 @@ function writePassword() {
 //make sure user selects at least one of the above
 
 
-
 function generatePassword () {
-  var passwordLength = 5;
-  var lowercase = true;
-  var uppercase = true;
-  var numeric = true;
-  var specialChar = true;
+  var passwordLength = document.querySelector("#passwordLength").value;
+
+  if (passwordLength<8 || passwordLength>128) {
+    alert ("Your password legth must be between 8 and 128 characters. Please try again.");
+    return;
+  }
+
+
+  console.log(passwordLength);
+
+  var lowercase = document.querySelector("#lowerCase").checked;
+  var uppercase = document.querySelector("#upperCase").checked;
+  var numeric = document.querySelector("#numberChar").checked;
+  var specialChar = document.querySelector("#specialChar").checked;
 
   var password = [];
   var allChars = [];
 
 //the case where the user does not input anything
-  if (!lowercase && !uppercase && !numeric && !specialChar && passwordLength<8 )
+  if (!lowercase && !uppercase && !numeric && !specialChar)
     alert ("Your password must contain at least one characteristic. Please try again.");
 
 
@@ -240,6 +248,9 @@ function generatePassword () {
 
   return password.join("");
 }
+
+
+// checkPasswordItems
 
 
 function specialCharArr () {

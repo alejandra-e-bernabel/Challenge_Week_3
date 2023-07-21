@@ -135,3 +135,7 @@ button[disabled] {
     font-size: 0.8rem;
   }
 }
+
+.label {
+  color: rgb(194, 20, 41);
+}
